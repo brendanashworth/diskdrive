@@ -1,0 +1,23 @@
+{
+  "name": "diskdrive",
+  "version": "0.1.1",
+  "description": "OS compatible bindings for various CD/DVD drive utilities with NodeJS (OSX 10.9.2+ supported)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boboman13/diskdrive"
+  },
+  "keywords": [
+    "disk",
+    "drive",
+    "cd",
+    "dvd",
+    "binding"
+  ],
+  "author": "boboman13",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
