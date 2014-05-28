@@ -3,7 +3,7 @@ DiskDrive
 
 ![DiskDrive NPM](https://nodei.co/npm/diskdrive.png)
 
-> DiskDrive is a (soon to be) cross compatible binding for DVD and CD drives. It is still a work in progress, but at the moment it supports OSX 10.9.2+.
+> DiskDrive is a cross compatible binding for DVD and CD drives. It currently supports OSX and Linux.
 
 ### Install
 ```bash
@@ -14,9 +14,21 @@ $ npm install diskdrive
 ```javascript
 var diskdrive = require('diskdrive');
 
-// Eject primary disk. (If you don't know what you're doing, this is what you want.)
+// Eject the primary disk drive.
 diskdrive.eject();
 
-// Eject disk of [id].
+// [Mac] Eject disk of [id].
 diskdrive.eject(2);
+
+// [Linux] Eject disk drive, with specified mount.
+diskdrive.eject('/dev/dvd');
+diskdrive.eject('dvd'); // appended to /dev/, would result in same system file. (/dev/dvd)
 ```
+
+### Cross Compatibility
+Currently, OSX and Linux have been tested and are confirmed to work. The following have been tested with good results:
+* OSX 10.9.2
+* Ubuntu 12.04
+
+### License
+[MIT](./LICENSE)
