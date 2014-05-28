@@ -1,7 +1,7 @@
 {
   "name": "diskdrive",
   "version": "0.2.1",
-  "description": "OS compatible bindings for various CD/DVD drive utilities with NodeJS (OSX 10.9.2+ supported)",
+  "description": "OS compatible bindings for various CD/DVD drive utilities with NodeJS (OSX + Linux supported) ",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
