@@ -36,6 +36,6 @@ self.eject = function(id, callback) {
 			}
 		});
 	} else {
-		process.nextTick(callback.bind(null, 'unsupported platform: ' + process.platform));
+		process.nextTick(callback.bind(null, new Error('unsupported platform: ' + process.platform)));
 	}
 };
