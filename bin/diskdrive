@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+var diskdrive = require('../main');
+
+diskdrive.eject(process.argv[2], function(error) {
+	if (error)
+		console.error(error);
+});

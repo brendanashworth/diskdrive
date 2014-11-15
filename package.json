@@ -1,6 +1,6 @@
 {
   "name": "diskdrive",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "OS compatible bindings for various CD/DVD drive utilities with NodeJS (OSX + Linux supported) ",
   "main": "main.js",
   "scripts": {

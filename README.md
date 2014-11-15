@@ -8,8 +8,18 @@ DiskDrive
 
 ## Install
 ```bash
-$ npm install diskdrive
+$ npm install diskdrive --save
 ```
+
+## CLI
+```bash
+$ npm install diskdrive -g
+```
+
+```bash
+$ diskdrive [mount/id]
+```
+Mount / id is the same as the documentation's mount / id.
 
 ## Documentation
 #### Eject: `function([id/mount], [callback(err)]);`
