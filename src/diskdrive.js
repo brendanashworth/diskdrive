@@ -2,19 +2,25 @@ var exec = require('child_process').exec;
 
 var self = module.exports;
 
-self.eject = function(id) {
+/**
+ * Eject the specified disk drive.
+ * @param  {int|string}   id       Locator for the disk drive.
+ * @param  {Function}     callback Optional callback for disk drive ejection completion / error.
+ */
+self.eject = function(id, callback) {
 	// are we running on mac?
 	if (process.platform === 'darwin') {
 		// setup optional argument, on mac, will default to 1
 		id = (typeof id === 'undefined') ? 1 : id;
 
 		exec('drutil tray eject ' + id, function(err, stdout, stderr) {
-			if (err) {
-				console.log('ERROR: DiskDrive, when executing bash cmd: ' + err);
-				return;
+			if (err && callback) {
+				// error occurred and callback exists
+				callback(err);
+			} else if (callback) {
+				// no error, but callback for completion
+				callback(null);
 			}
-
-			// if it came here, it went all perfectly and it ejected.
 		});
 	// are we running on linux?
 	} else if (process.platform === 'linux') {
@@ -22,14 +28,14 @@ self.eject = function(id) {
 		id = (typeof id === 'undefined') ? '' : id;
 
 		exec('eject ' + id, function(err, stdout, stderr) {
-			if (err) {
-				console.log('ERROR: DiskDrive, when executing bash cmd: ' + err);
-				return;
+			if (err && callback) {
+				callback(err);
+			} else if (callback) {
+				// no error, callback for completion
+				callback(null);
 			}
-
-			// if it came here, it went all perfectly and it ejected.
 		});
 	} else {
-		console.log('ERROR: Unsupported DiskDrive platform (' + process.platform + ').');
+		process.nextTick(callback.bind(null, 'unsupported platform: ' + process.platform));
 	}
 };
